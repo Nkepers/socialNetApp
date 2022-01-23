@@ -50,9 +50,9 @@ const thoughtController = {
     },
 
     //add Friend
-    addReaction({ params }, res) {
+    addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
-            { _id: params.ThoughtId },
+            { _id: params.thoughtId },
             { $push: { reactions: body } },
             { new: true, runValidators: true }
         )
